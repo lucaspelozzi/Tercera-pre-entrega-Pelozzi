@@ -1,0 +1,13 @@
+{% extends 'mi_aplicacion/base.html' %}
+
+{% block content %}
+  {% if resultados %}
+    <ul>
+    {% for resultado in resultados %}
+      <li>{{ resultado.campo1 }} - {{ resultado.campo2 }} - {{ resultado.campo3 }} - {{ resultado.campo4 }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron resultados.</p>
+  {% endif %}
+{% endblock %}

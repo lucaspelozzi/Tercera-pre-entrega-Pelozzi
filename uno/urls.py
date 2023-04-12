@@ -1,6 +1,6 @@
 from django.urls import path
-from uno import views
+from .views import buscar
 
 urlpatterns = [
-    path('', views.inicio)
+    path('buscar/', buscar, name='buscar'),
 ]

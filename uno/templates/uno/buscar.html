@@ -1,0 +1,10 @@
+{% extends 'mi_aplicacion/base.html' %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <label for="busqueda">Buscar:</label>
+    <input type="text" name="busqueda" id="busqueda">
+    <button type="submit">Buscar</button>
+  </form>
+{% endblock %}
