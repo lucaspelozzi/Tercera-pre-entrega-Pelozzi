@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>la página</title>
+</head>
+<body>
+
+    {% if edad > 21 %}
+    <h1 style = 'color: green'>{{nombre}} {{apellido}}</h1>
+    <h1 style = 'color: blue'>{{anios}}</h1>
+    <h1 style = 'color: yellow'>{{nombre}} {{apellido}}</h1>
+    {% elif edad > 18 %}
+    <h1 style = 'color: blue'>{{anios}}</h1>
+    {% else  %}
+    <h1 style = 'color: yellow'>{{nombre}} {{apellido}}</h1>
+    {% endif %}
+    
+    {% for anio in anios %}
+        {% if edad < 5 %}
+            <h3><li>Valor del listado {{forloop.counter}} es: {{anio}}</li></h3>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
