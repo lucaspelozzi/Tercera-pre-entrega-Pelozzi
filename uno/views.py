@@ -9,7 +9,9 @@ def paginavacia(request):
     return HttpResponse('<h1></h1>')
 
 def inicio(request):
-    return HttpResponse('<h1>Inicio</h1>')
+    # return HttpResponse('<h1>Inicio</h1>')
+    # datos = {'nombre': 'Lucas', 'apellido':'Pelozzi', 'fecha_nacimiento': '1982'}
+    return render(request, r'uno/index.html')
 
 # version con Httpresponse
 
