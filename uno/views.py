@@ -2,12 +2,14 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from uno.models import Animal
+from django.shortcuts import render
+
 
 def paginavacia(request):
     return HttpResponse('<h1></h1>')
 
-def iniciopagina(request):
-    return HttpResponse('<h1>Hola web</h1>')
+def inicio(request):
+    return HttpResponse('<h1>Inicio</h1>')
 
 # version con Httpresponse
 
@@ -21,13 +23,13 @@ def fecha(request):
 def saludo(request, nombre, apellido):
     return HttpResponse(f'<h1>Hola {nombre} {apellido}</h1>')
 
-# def template1(request):
-#     archivo = open(r'C:\Users\KILLL\Desktop\Carpeta de CODER\Proyecto\templates\template1.html', 'r')
-#     template = template(archivo.read())
-#     archivo.close()
-#     contexto = Context()
-#     templaterenderizado = template.render(contexto)
-#     return HttpResponse(templaterenderizado)
+def template1(request):
+    archivo = open(r'C:\Users\KILLL\Desktop\Carpeta de CODER\Proyecto\uno\templates', 'r')
+    template = Template(archivo.read())
+    archivo.close()
+    contexto = Context()
+    templaterenderizado = template.render(contexto)
+    return HttpResponse(templaterenderizado)
 
 def template2(request):
     datos = {
@@ -39,16 +41,25 @@ def template2(request):
         ]   
     }
     
-    template = loader.get_template(r'template2.html')
+    template = loader.get_template(r'uno/template2.html')
     templaterenderizado = template.render(datos)
     return HttpResponse(templaterenderizado)
 
 def crearanimal(request):
-    animal = Animal(nombre='Tomi', edad=15)
+    animal = Animal(nombre='Kity', edad=17)
     print(animal.nombre)
     print(animal.edad)
     animal.save()
     datos = {'animal': animal}
-    template = loader.get_template(r'crearanimal.html')
+    template = loader.get_template(r'uno/crearanimal.html')
     templaterenderizado = template.render(datos)
     return HttpResponse(templaterenderizado)
+
+def mirender(request):
+    datos = {'nombre': 'Lucas', 'apellido':'Pelozzi', 'fecha_nacimiento': '1982'}
+    # template = loader.get_template(r'mirender.html')
+    # templaterenderizado = template.render(datos)
+    # return HttpResponse(templaterenderizado)
+
+    return render(request, r'uno/mirender.html', datos)
+    
