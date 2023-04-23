@@ -3,7 +3,7 @@ from django.urls import path
 from uno import views
 from django.shortcuts import render
 
-# app_name = 'uno'
+app_name = 'uno'
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),

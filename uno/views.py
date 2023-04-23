@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 
 def paginavacia(request):
-    return HttpResponse('<h1></h1>')
+    return render(request, r'uno/paginavacia.html')
 
 def inicio(request):
     # return HttpResponse('<h1>Inicio</h1>')
