@@ -25,14 +25,6 @@ def fecha(request):
 def saludo(request, nombre, apellido):
     return HttpResponse(f'<h1>Hola {nombre} {apellido}</h1>')
 
-def template1(request):
-    archivo = open(r'C:\Users\KILLL\Desktop\Carpeta de CODER\Proyecto\uno\templates', 'r')
-    template = Template(archivo.read())
-    archivo.close()
-    contexto = Context()
-    templaterenderizado = template.render(contexto)
-    return HttpResponse(templaterenderizado)
-
 def template2(request):
     datos = {
         'nombre': 'Lucas',
@@ -63,5 +55,5 @@ def mirender(request):
     # templaterenderizado = template.render(datos)
     # return HttpResponse(templaterenderizado)
 
-    return render(request, r'uno/mirender.html', datos)
+    return render(request, r'uno/render.html', datos)
     
